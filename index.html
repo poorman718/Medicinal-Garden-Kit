@@ -879,10 +879,9 @@
             z-index: 0;
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+        .pricing-card-container {
+            display: flex;
+            justify-content: center;
             margin-top: 3rem;
             position: relative;
             z-index: 1;
@@ -891,12 +890,14 @@
         .pricing-card {
             background-color: var(--white);
             border-radius: var(--border-radius-lg);
-            padding: 2.5rem;
+            padding: 3rem;
             text-align: center;
-            box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow-lg);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            max-width: 600px;
+            width: 100%;
             transform: translateY(30px);
             opacity: 0;
         }
@@ -905,68 +906,49 @@
             animation: fadeInUp 0.6s forwards;
         }
 
-        .pricing-card:nth-child(1) { animation-delay: 0.1s; }
-        .pricing-card:nth-child(2) { animation-delay: 0.3s; }
-        .pricing-card:nth-child(3) { animation-delay: 0.5s; }
-
         .pricing-card:hover {
             transform: translateY(-10px) !important;
-            box-shadow: var(--box-shadow-lg);
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--accent);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(255, 159, 28, 0.3);
         }
 
         .pricing-card h3 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
+            color: var(--primary-dark);
         }
 
         .pricing-amount {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: flex-start;
             justify-content: center;
+            position: relative;
         }
 
         .pricing-amount span {
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: normal;
             margin-left: 0.5rem;
             align-self: flex-end;
         }
 
         .pricing-features {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             text-align: left;
+            columns: 2;
+            column-gap: 2rem;
         }
 
         .pricing-features li {
             list-style: none;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
             border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
             position: relative;
-            padding-left: 1.75rem;
+            padding-left: 2rem;
+            break-inside: avoid;
         }
 
         .pricing-features li:before {
@@ -974,13 +956,16 @@
             position: absolute;
             left: 0;
             color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        .savings {
-            color: var(--accent);
-            font-weight: 700;
-            margin-top: 1rem;
+        .pricing-card .btn {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
             font-size: 1.1rem;
+            padding: 1.2rem 2.5rem;
         }
 
         /* FAQ Section */
@@ -1157,19 +1142,19 @@
         }
 
         .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin-bottom: 3rem;
             position: relative;
             z-index: 1;
         }
 
         .footer-logo {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--white);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
             font-family: 'Playfair Display', serif;
@@ -1181,8 +1166,14 @@
         }
 
         .footer-logo i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-right: 0.5rem;
+        }
+
+        .footer-about {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2rem;
         }
 
         .footer-about p {
@@ -1192,19 +1183,20 @@
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             transition: var(--transition);
         }
 
@@ -1213,41 +1205,21 @@
             transform: translateY(-5px);
         }
 
-        .footer-links h3 {
-            color: var(--white);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.75rem;
-        }
-
-        .footer-links h3:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
         }
 
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             transition: var(--transition-fast);
-            display: inline-block;
         }
 
         .footer-links a:hover {
             color: var(--accent);
-            transform: translateX(5px);
         }
 
         .footer-bottom {
@@ -1258,6 +1230,7 @@
             font-size: 0.9rem;
             position: relative;
             z-index: 1;
+            width: 100%;
         }
 
         /* Animations */
@@ -1322,6 +1295,10 @@
             .step {
                 min-width: 150px;
                 margin-bottom: 3rem;
+            }
+
+            .pricing-features {
+                columns: 1;
             }
         }
 
@@ -1398,11 +1375,8 @@
                 font-size: 2rem;
             }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin-left: auto;
-                margin-right: auto;
+            .pricing-card {
+                padding: 2rem;
             }
         }
 
@@ -1453,8 +1427,10 @@
                 grid-template-columns: 1fr;
             }
 
-            .footer-container {
-                grid-template-columns: 1fr;
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
             }
         }
     </style>
@@ -1819,20 +1795,26 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-title">
-                <h2>Choose Your Kit</h2>
-                <p>Select the option that works best for you and start growing your medicine today</p>
+                <h2>Get Your Medicinal Garden Kit</h2>
+                <p>Everything you need to start growing your own natural remedies</p>
             </div>
-            <div class="pricing-grid">
+            <div class="pricing-card-container">
                 <div class="pricing-card">
-                    <h3>Starter Kit</h3>
+                    <h3>Complete Medicinal Garden Kit</h3>
                     <div class="pricing-amount">$59 <span>+ shipping</span></div>
                     <ul class="pricing-features">
-                        <li>10 Medicinal Herb Seed Packs</li>
-                        <li>Printed Remedy Guide (60 pages)</li>
-                        <li>FREE Home Apothecary eBook</li>
+                        <li>10 Medicinal Herb Seed Packs (Non-GMO, Heirloom)</li>
+                        <li>Printed 60-page Remedy Guide with step-by-step instructions</li>
+                        <li>FREE Bonus: "Home Apothecary Handbook" eBook</li>
+                        <li>FREE Bonus: 5 Extra Culinary Herb Seeds</li>
+                        <li>FREE Bonus: "Herbs for Kids" Guide</li>
+                        <li>FREE Bonus: "Advanced Herbalism" Mini-Course</li>
                         <li>365-Day Satisfaction Guarantee</li>
+                        <li>Priority Customer Support</li>
+                        <li>Access to Private Gardening Community</li>
+                        <li>Seasonal Growing Tips Newsletter</li>
                     </ul>
-                    <a href="https://medicinalseedkit.com/kit/#aff=happy012" class="btn">Order Now</a>
+                    <a href="https://medicinalseedkit.com/kit/#aff=happy012" class="btn btn-accent">Order Now</a>
                 </div>
             </div>
         </div>
@@ -1939,36 +1921,25 @@
     <footer>
         <div class="container">
             <div class="footer-container">
+                <a href="#" class="footer-logo">
+                    <i class="fas fa-leaf"></i>
+                    Medicinal<span>Garden</span>
+                </a>
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">
-                        <i class="fas fa-leaf"></i>
-                        Medicinal<span>Garden</span>
-                    </a>
                     <p>Empowering families to take control of their health through nature's medicine since 2015.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://instagram.com/lilifreeha"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/lilifreeha"><i class="fab fa-instagram"></i></a>
+                    <a href="https://instagram.com/lilifreeha"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://instagram.com/lilifreeha"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#whats-inside">What's Included</a></li>
-                        <li><a href="#features">Benefits</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Garden Way, Portland, OR 97201</li>
-                        <li><i class="fas fa-phone"></i> (800) 555-1234</li>
-                        <li><i class="fas fa-envelope"></i> support@medicinalgarden.com</li>
-                    </ul>
+                    <a href="#whats-inside">What's Included</a>
+                    <a href="#features">Benefits</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#faq">FAQ</a>
                 </div>
             </div>
             <div class="footer-bottom">
