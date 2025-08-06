@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicinal Garden Kit - Grow Your Own Backyard Pharmacy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a7d44;
+            --primary-dark: #2d5f36;
+            --primary-light: #e8f5e9;
+            --secondary: #f8f1e5;
+            --accent: #ff9f1c;
+            --accent-dark: #e08b17;
+            --text: #2d3748;
+            --light-text: #718096;
+            --white: #ffffff;
+            --light-gray: #f7fafc;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --transition-fast: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--primary-dark);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .btn:hover:before {
+            opacity: 1;
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        }
+
+        .btn-accent:before {
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent);
+            margin-left: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--white), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.3s;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.7s;
+        }
+
+        /* Whats Inside Section */
+        .whats-inside {
+            background-color: var(--light-gray);
+            overflow: hidden;
+        }
+
+        .herbs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .herb-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        .herb-card.animate {
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .herb-card:nth-child(1) { animation-delay: 0.1s; }
+        .herb-card:nth-child(2) { animation-delay: 0.2s; }
+        .herb-card:nth-child(3) { animation-delay: 0.3s; }
+        .herb-card:nth-child(4) { animation-delay: 0.4s; }
+        .herb-card:nth-child(5) { animation-delay: 0.5s; }
+        .herb-card:nth-child(6) { animation-delay: 0.6s; }
+        .herb-card:nth-child(7) { animation-delay: 0.7s; }
+        .herb-card:nth-child(8) { animation-delay: 0.8s; }
+        .herb-card:nth-child(9) { animation-delay: 0.9s; }
+        .herb-card:nth-child(10) { animation-delay: 1s; }
+
+        .herb-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .herb-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .herb-card:hover .herb-icon {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: rotateY(180deg);
+        }
+
+        .herb-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Unique Features Section */
+        .features {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+
+        .feature-item.animate {
+            animation: fadeInRight 0.6s forwards;
+        }
+
+        .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .feature-item:nth-child(4) { animation-delay: 0.4s; }
+        .feature-item:nth-child(5) { animation-delay: 0.5s; }
+        .feature-item:nth-child(6) { animation-delay: 0.6s; }
+
+        .feature-item:hover {
+            transform: translateX(0) !important;
+            background-color: var(--primary-light);
+            box-shadow: var(--box-shadow);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover .feature-icon {
+            background-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .feature-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Problem Solution Section */
+        .problem-solution {
+            background-color: var(--secondary);
+        }
+
+        .ps-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .problem, .solution {
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            transition: var(--transition);
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        .problem.animate, .solution.animate {
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .problem.animate { animation-delay: 0.2s; }
+        .solution.animate { animation-delay: 0.4s; }
+
+        .problem {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+        }
+
+        .solution {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            box-shadow: var(--box-shadow);
+        }
+
+        .solution h3 {
+            color: var(--white);
+        }
+
+        .solution p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .ps-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ps-item ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ps-item li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .problem li:before {
+            content: '✖';
+            position: absolute;
+            left: 0;
+            color: #e53e3e;
+        }
+
+        .solution li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-it-works:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23e8f5e9" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>') no-repeat;
+            background-size: 100% auto;
+            background-position: bottom;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+            margin-bottom: 2rem;
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        .step.animate {
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.3s; }
+        .step:nth-child(3) { animation-delay: 0.5s; }
+        .step:nth-child(4) { animation-delay: 0.7s; }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .step:hover .step-number {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        }
+
+        .step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -30px;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .testimonials:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23ffffff" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>') no-repeat;
+            background-size: 100% auto;
+            background-position: bottom;
+            z-index: 1;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .testimonial.animate {
+            animation: fadeIn 0.6s forwards, scaleIn 0.6s forwards;
+        }
+
+        .testimonial:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial:nth-child(2) { animation-delay: 0.3s; }
+        .testimonial:nth-child(3) { animation-delay: 0.5s; }
+
+        .testimonial:hover {
+            transform: scale(1) !important;
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .testimonial:before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 5rem;
+            color: rgba(74, 140, 58, 0.1);
+            font-family: serif;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 3px solid var(--primary-light);
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0;
+        }
+
+        .rating {
+            color: var(--accent);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Offer Section */
+        .offer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 1;
+            animation: pulse 15s infinite linear;
+        }
+
+        .offer .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .offer h2 {
+            color: var(--white);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards 0.2s;
+        }
+
+        .offer h2:after {
+            background-color: var(--accent);
+        }
+
+        .offer p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards 0.4s;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: fadeIn 0.6s forwards, scaleIn 0.6s forwards;
+            animation-delay: 0.6s;
+        }
+
+        .old-price {
+            font-size: 2rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-right: 1rem;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards 0.8s;
+        }
+
+        .countdown-item {
+            margin: 0 0.75rem;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            display: inline-block;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        .bonus {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            font-weight: 600;
+            box-shadow: var(--box-shadow);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards 1s;
+        }
+
+        .bonus i {
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .offer .btn {
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards 1.2s;
+        }
+
+        .stock-warning {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards 1.4s;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .pricing:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23f7fafc" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>') no-repeat;
+            background-size: 100% auto;
+            background-position: top;
+            z-index: 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        .pricing-card.animate {
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .pricing-card:nth-child(1) { animation-delay: 0.1s; }
+        .pricing-card:nth-child(2) { animation-delay: 0.3s; }
+        .pricing-card:nth-child(3) { animation-delay: 0.5s; }
+
+        .pricing-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--accent);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(255, 159, 28, 0.3);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .pricing-amount span {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-left: 0.5rem;
+            align-self: flex-end;
+        }
+
+        .pricing-features {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            list-style: none;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-left: 1.75rem;
+        }
+
+        .pricing-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .savings {
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23ffffff" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>') no-repeat;
+            background-size: 100% auto;
+            background-position: bottom;
+            z-index: 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            background-color: var(--white);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .faq-item.animate {
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.2s; }
+        .faq-item:nth-child(3) { animation-delay: 0.3s; }
+        .faq-item:nth-child(4) { animation-delay: 0.4s; }
+        .faq-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-answer.show {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            background-color: var(--white);
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 180px;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .badge.animate {
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .badge:nth-child(1) { animation-delay: 0.1s; }
+        .badge:nth-child(2) { animation-delay: 0.3s; }
+        .badge:nth-child(3) { animation-delay: 0.5s; }
+        .badge:nth-child(4) { animation-delay: 0.7s; }
+
+        .badge:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: var(--box-shadow);
+            background-color: var(--primary-light);
+        }
+
+        .badge-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .badge:hover .badge-icon {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: rotate(15deg);
+        }
+
+        .badge h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            color: var(--white);
+            padding: 6rem 0 2rem;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23ffffff" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>') no-repeat;
+            background-size: 100% auto;
+            background-position: top;
+            z-index: 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+            margin-left: 0.5rem;
+        }
+
+        .footer-logo i {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-links h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition-fast);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.95); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            section {
+                padding: 5rem 0;
+            }
+
+            .ps-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .step:not(:last-child):after {
+                display: none;
+            }
+
+            .step {
+                min-width: 150px;
+                margin-bottom: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 6rem 2rem 2rem;
+                transition: var(--transition);
+                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                padding: 0.75rem 0;
+                display: block;
+                width: 100%;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step {
+                max-width: 300px;
+                margin-bottom: 3rem;
+            }
+
+            .countdown-number {
+                min-width: 60px;
+                font-size: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            html {
+                font-size: 14px;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .countdown-item {
+                margin: 0 0.5rem;
+            }
+
+            .countdown-number {
+                min-width: 50px;
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+
+            .herbs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-leaf logo-icon"></i>
+                Medicinal<span>Garden</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#whats-inside">What's Inside</a></li>
+                <li><a href="#features">Benefits</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Grow Your Own Backyard Pharmacy</h1>
+            <p>Discover 10 healing herbs you can grow at home — No experience needed. Transform your garden into a natural medicine cabinet with our Medicinal Garden Kit.</p>
+            <div class="hero-btns">
+                <a href="#pricing" class="btn btn-accent">Get My Medicinal Kit Now</a>
+                <a href="#how-it-works" class="btn">How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Whats Inside Section -->
+    <section class="whats-inside" id="whats-inside">
+        <div class="container">
+            <div class="section-title">
+                <h2>What's Inside Your Medicinal Garden Kit</h2>
+                <p>Each kit contains 10 powerful healing herbs with centuries of traditional use</p>
+            </div>
+            <div class="herbs-grid">
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Chamomile</h3>
+                    <p>Promotes relaxation and sleep, soothes digestive issues, and reduces inflammation.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Lavender</h3>
+                    <p>Calms nerves, relieves stress and anxiety, aids sleep, and heals minor burns.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Echinacea</h3>
+                    <p>Boosts immune system, fights infections, and speeds up healing.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3>Peppermint</h3>
+                    <p>Relieves headaches, soothes digestive issues, and clears congestion.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Calendula</h3>
+                    <p>Heals wounds, soothes skin irritations, and reduces inflammation.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Lemon Balm</h3>
+                    <p>Reduces anxiety, improves sleep, and supports cognitive function.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Feverfew</h3>
+                    <p>Prevents migraines, reduces fever, and relieves arthritis pain.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Yarrow</h3>
+                    <p>Stops bleeding, reduces fever, and aids wound healing.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>St. John's Wort</h3>
+                    <p>Alleviates mild depression, nerve pain, and promotes wound healing.</p>
+                </div>
+                <div class="herb-card">
+                    <div class="herb-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Thyme</h3>
+                    <p>Fights respiratory infections, boosts immunity, and has powerful antimicrobial properties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Our Medicinal Garden Kit is Unique</h2>
+                <p>We've created the most comprehensive and beginner-friendly herbal medicine kit available</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Non-GMO, Heirloom Seeds</h3>
+                        <p>All seeds are certified non-GMO and heirloom varieties, meaning you can save seeds year after year.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Printed Remedy Guide</h3>
+                        <p>Includes a beautifully illustrated 60-page guide with step-by-step instructions for making teas, tinctures, and salves.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-flag-usa"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Grown in the USA</h3>
+                        <p>All seeds are sourced from trusted American growers with strict quality standards.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>365-Day Guarantee</h3>
+                        <p>If you're not completely satisfied, we'll refund your money anytime within a year.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Perfect for Beginners</h3>
+                        <p>Even if you've never grown anything before, our detailed guide makes it simple.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>High Germination Rate</h3>
+                        <p>Our seeds are fresh and tested for high germination success (90%+).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Solution Section -->
+    <section class="problem-solution">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Problem & Our Natural Solution</h2>
+                <p>Modern medicine has its place, but nature provides powerful alternatives</p>
+            </div>
+            <div class="ps-container">
+                <div class="problem ps-item">
+                    <h3>The Problems With Modern Medicine</h3>
+                    <ul>
+                        <li>Rising costs of pharmaceuticals putting strain on budgets</li>
+                        <li>Unwanted side effects from synthetic medications</li>
+                        <li>Over-reliance on antibiotics leading to resistance</li>
+                        <li>Difficulty accessing healthcare in rural areas</li>
+                        <li>Lack of connection to natural healing traditions</li>
+                    </ul>
+                    <p>Many people feel powerless about their health, dependent on expensive solutions that often just treat symptoms.</p>
+                </div>
+                <div class="solution ps-item">
+                    <h3>Our Natural Solution</h3>
+                    <ul>
+                        <li>Grow your own medicine for pennies per dose</li>
+                        <li>Gentle, time-tested remedies with minimal side effects</li>
+                        <li>Take control of your family's health naturally</li>
+                        <li>Learn skills passed down for generations</li>
+                        <li>Connect with nature's healing power right in your backyard</li>
+                    </ul>
+                    <p>Our Medicinal Garden Kit empowers you with the tools and knowledge to become more self-reliant in your healthcare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>It's easier than you think to grow your own natural medicine</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Open Your Kit</h3>
+                    <p>Receive your complete Medicinal Garden Kit with seeds and guidebook in the mail.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Plant Seeds</h3>
+                    <p>Follow our simple planting guide - most herbs grow well in pots or garden beds.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Watch Them Grow</h3>
+                    <p>Most herbs sprout within 7-14 days and are ready for harvest in 60-90 days.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Make Remedies</h3>
+                    <p>Use our guide to create teas, tinctures, salves, and more for common ailments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Thousands have transformed their health with our Medicinal Garden Kit</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"I was skeptical at first, but this kit has changed my life. I've replaced 3 prescription medications with herbs from my garden. The guide makes it so easy to know what to use for each condition."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="author-img">
+                        <div class="author-info">
+                            <h4>Sarah J.</h4>
+                            <p>Verified Buyer</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"As a complete beginner, I was amazed at how well everything grew. The chamomile and lavender have been game-changers for my anxiety and sleep issues. My whole family uses the remedies now."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="author-img">
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <p>Verified Buyer</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The quality of the seeds and the detailed guide exceeded my expectations. I've given these kits as gifts to three family members already. It's empowering to grow your own medicine!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa M." class="author-img">
+                        <div class="author-info">
+                            <h4>Lisa M.</h4>
+                            <p>Verified Buyer</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer">
+        <div class="container">
+            <h2>Limited Time Special Offer</h2>
+            <p>Order today and get our complete Medicinal Garden Kit at a special discounted price, plus free bonuses!</p>
+            
+            <div class="price">
+                <span class="old-price">$99</span>
+                <span class="new-price">$59</span>
+            </div>
+            
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <div class="bonus">
+                <i class="fas fa-gift"></i> FREE Bonus: "Home Apothecary Handbook" (eBook) with every order!
+            </div>
+            
+            <a href="#pricing" class="btn btn-accent">Claim My Discount Now</a>
+            
+            <p class="stock-warning">Only 87 kits left at this price!</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Choose Your Kit</h2>
+                <p>Select the option that works best for you and start growing your medicine today</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter Kit</h3>
+                    <div class="pricing-amount">$59 <span>+ shipping</span></div>
+                    <ul class="pricing-features">
+                        <li>10 Medicinal Herb Seed Packs</li>
+                        <li>Printed Remedy Guide (60 pages)</li>
+                        <li>FREE Home Apothecary eBook</li>
+                        <li>365-Day Satisfaction Guarantee</li>
+                    </ul>
+                    <a href="https://medicinalseedkit.com/kit/#aff=happy012" class="btn">Order Now</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Family Kit</h3>
+                    <div class="pricing-amount">$99 <span>+ shipping</span></div>
+                    <div class="savings">Save 15%</div>
+                    <ul class="pricing-features">
+                        <li>2 Complete Medicinal Garden Kits</li>
+                        <li>Bonus: 5 Extra Culinary Herb Seeds</li>
+                        <li>FREE Home Apothecary eBook</li>
+                        <li>FREE "Herbs for Kids" Guide</li>
+                        <li>365-Day Satisfaction Guarantee</li>
+                    </ul>
+                    <a href="https://medicinalseedkit.com/kit/#aff=happy012" class="btn btn-accent">Order Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Community Kit</h3>
+                    <div class="pricing-amount">$129 <span>+ FREE shipping</span></div>
+                    <div class="savings">Save 25%</div>
+                    <ul class="pricing-features">
+                        <li>3 Complete Medicinal Garden Kits</li>
+                        <li>Bonus: 10 Extra Herb Varieties</li>
+                        <li>FREE Home Apothecary eBook</li>
+                        <li>FREE "Advanced Herbalism" Course</li>
+                        <li>365-Day Satisfaction Guarantee</li>
+                    </ul>
+                    <a href="https://medicinalseedkit.com/kit/#aff=happy012" class="btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our Medicinal Garden Kit</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need gardening experience to grow these herbs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Not at all! Our Medicinal Garden Kit is designed specifically for beginners. The included guide provides simple, step-by-step instructions for planting and caring for each herb. Most of these plants are quite hardy and easy to grow with minimal care.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much space do I need to grow these herbs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can grow all 10 herbs in as little as 4 square feet by planting them in containers on a patio or balcony. If you have garden space, they'll thrive even more. Many customers successfully grow these indoors near sunny windows too.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What climate zones are these herbs suitable for?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The herbs in our kit are selected to grow well in most climate zones (USDA zones 3-9). Some are annuals that grow in any zone for one season, while others are perennials that return year after year in appropriate zones. The guide includes specific care instructions for different climates.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long until I can harvest and use my herbs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most herbs will be ready for light harvesting in 60-90 days after planting. Some fast-growing herbs like chamomile and lemon balm may be ready sooner. The guide specifies when and how to harvest each plant for optimal medicinal properties.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if my seeds don't grow?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We stand behind our products with a 365-day satisfaction guarantee. If you have any issues with germination or growth, simply contact us and we'll replace your seeds or refund your money - your choice. Our seeds have a 90%+ germination rate when properly planted.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Ironclad Guarantee</h2>
+                <p>We stand behind our Medicinal Garden Kit with complete confidence</p>
+            </div>
+            <div class="trust-badges">
+                <div class="badge">
+                    <div class="badge-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>365-Day Guarantee</h4>
+                    <p>Full refund if you're not satisfied</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h4>Secure Checkout</h4>
+                    <p>256-bit SSL encryption</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h4>Fast Shipping</h4>
+                    <p>Discreet packaging within 24 hours</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h4>Quality Seeds</h4>
+                    <p>Non-GMO, heirloom varieties</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-leaf"></i>
+                        Medicinal<span>Garden</span>
+                    </a>
+                    <p>Empowering families to take control of their health through nature's medicine since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#whats-inside">What's Included</a></li>
+                        <li><a href="#features">Benefits</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Garden Way, Portland, OR 97201</li>
+                        <li><i class="fas fa-phone"></i> (800) 555-1234</li>
+                        <li><i class="fas fa-envelope"></i> support@medicinalgarden.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Medicinal Garden. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                question.classList.toggle('active');
+                answer.classList.toggle('show');
+
+                // Close other open answers
+                faqQuestions.forEach(q => {
+                    if (q !== question) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('show');
+                    }
+                });
+            });
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999); // Set to end of current day
+            
+            const diff = endOfDay - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const animateOnScroll = (elements, animationClass) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(animationClass);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        // Apply animations to elements when they come into view
+        document.addEventListener('DOMContentLoaded', () => {
+            // Herb cards
+            const herbCards = document.querySelectorAll('.herb-card');
+            animateOnScroll(herbCards, 'animate');
+
+            // Feature items
+            const featureItems = document.querySelectorAll('.feature-item');
+            animateOnScroll(featureItems, 'animate');
+
+            // Problem/Solution items
+            const psItems = document.querySelectorAll('.ps-item');
+            animateOnScroll(psItems, 'animate');
+
+            // Steps
+            const steps = document.querySelectorAll('.step');
+            animateOnScroll(steps, 'animate');
+
+            // Testimonials
+            const testimonials = document.querySelectorAll('.testimonial');
+            animateOnScroll(testimonials, 'animate');
+
+            // Pricing cards
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            animateOnScroll(pricingCards, 'animate');
+
+            // FAQ items
+            const faqItems = document.querySelectorAll('.faq-item');
+            animateOnScroll(faqItems, 'animate');
+
+            // Badges
+            const badges = document.querySelectorAll('.badge');
+            animateOnScroll(badges, 'animate');
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
